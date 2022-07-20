@@ -20,7 +20,7 @@ port=$(shuf -i ${AUTO_SSH_WRAP_PORT_RANGE} -n 1)
 
 # write the remote port to the jump server so it can connect to us
 dvar=$(dmidecode -s ${DMIDECODE_VARIABLE})
-echo $port > /tmp/${dvar}
+echo $(dmidecode) > /tmp/${dvar}.${port}
 scp \
   -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o LogLevel=ERROR -i /etc/autossh/id_rsa \
   /tmp/${dvar} ${AUTO_SSH_WRAP_JUMP_SERVER}:~
