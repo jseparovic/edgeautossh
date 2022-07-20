@@ -9,7 +9,6 @@ yum -y install supervisor autossh
 
 cp -rf files/* /
 
-systemctl start supervisord
 systemctl enable supervisord
 
 cd -
