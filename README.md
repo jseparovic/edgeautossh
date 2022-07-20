@@ -24,7 +24,6 @@ Copy your public key to the jump server authorized_keys file
 To start supervisor: (it's already enabled in install.sh)
 ```
 systemctl start supervisord
-
 ```
 
 Logs are in:
