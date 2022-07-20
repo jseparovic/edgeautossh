@@ -26,6 +26,6 @@ scp \
   /tmp/${dvar} ${AUTO_SSH_WRAP_JUMP_SERVER}:~
 
 # Start autossh in the foreground so it restarts by supervisord on failure
-/usr/bin/autossh -M 10000 -N -R ${port}:127.0.0.1:22 \
+/usr/bin/autossh -M ${AUTO_SSH_MONITORING_PORT} -N -R ${port}:127.0.0.1:22 \
   -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o LogLevel=ERROR -i /etc/autossh/id_rsa \
   ${AUTO_SSH_WRAP_JUMP_SERVER}
