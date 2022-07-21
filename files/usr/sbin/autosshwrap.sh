@@ -23,12 +23,12 @@ main() {
   dvar=$(dmidecode -s ${DMIDECODE_VARIABLE})
   dmidecode > /tmp/${dvar}.${port}
   scp \
-    -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o LogLevel=ERROR -i /etc/autossh/id_rsa \
+    -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o LogLevel=ERROR -i ${AUTO_SSH_RSA_KEY} \
     /tmp/${dvar}.${port} ${AUTO_SSH_WRAP_JUMP_SERVER}:~
   
   # Start autossh in the foreground so it restarts by supervisord on failure
   /usr/bin/autossh -M ${AUTO_SSH_MONITORING_PORT} -N -R ${port}:127.0.0.1:22 \
-    -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o LogLevel=ERROR -i /etc/autossh/id_rsa \
+    -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o LogLevel=ERROR -i ${AUTO_SSH_RSA_KEY} \
     -o ExitOnForwardFailure=yes -o ServerAliveInterval=5 -o ServerAliveCountMax=3 \
     -p ${AUTO_SSH_WRAP_JUMP_PORT} ${AUTO_SSH_WRAP_JUMP_USER}@${AUTO_SSH_WRAP_JUMP_SERVER}
 }
