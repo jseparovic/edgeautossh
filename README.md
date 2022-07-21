@@ -21,9 +21,9 @@ ssh-keygen -q -t rsa -N "" -f /etc/autossh/id_rsa
 Copy your public key to the jump server authorized_keys file
 
 
-To start supervisor: (it's already enabled in install.sh)
+To start: (it's already enabled in install.sh)
 ```
-systemctl start supervisord
+systemctl start autosshwrap
 ```
 
 Logs are in:

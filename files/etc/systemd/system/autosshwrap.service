@@ -1,0 +1,13 @@
+[Unit]
+Description=AutoSSH Wrapper
+Documentation=https://github.com/jseparovic/edgeautossh
+After=systemd-networkd-wait-online.service
+
+[Service]
+ExecStart=/usr/sbin/autosshwrap.sh
+KillMode=process
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
