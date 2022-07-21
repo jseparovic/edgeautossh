@@ -1,7 +1,7 @@
 
 Edge AutoSSH wrapper for reverse remote access
 
-This package uses supervisord to ensure autossh is running
+This package uses systemd to ensure autossh is running
 
 It has currently been tested on Centos 7
 
