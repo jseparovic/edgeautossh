@@ -31,3 +31,11 @@ Logs are in:
 tail -f /var/log/autosshwrap.log
 ```
 
+
+
+Add to Jump Server /etc/ssh/sshd_config:
+```
+GatewayPort yes
+ClientAliveInterval 15
+ClientAliveCountMax 3
+```
